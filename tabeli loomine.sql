@@ -1,7 +1,9 @@
 SQL SERVER MANAGER STUDIO
 
 --ab loomine
+
 CREATE DATABASE KonjajevLOGITpv22;
+
 USE KonjajevLOGITpv22;
 --tabeli loomine
 CREATE TABLE opilane(
