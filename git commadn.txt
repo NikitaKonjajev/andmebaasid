@@ -1,0 +1,12 @@
+cd desktop 
+git config --global --list
+git config --global user.name "NikitaKonjajev"
+git config --global user.email "nikita.kon00@gmail.com"
+git config --global --list
+git clone
+cd andmebaasid
+git status
+-----
+git add .
+git commit -a -m "Mida sa tegid"
+git push 
