@@ -120,3 +120,53 @@ where filmNimetus=@filmNimetus;
 select * from film where filmNimetus=@filmNimetus;;
 end;
 exec uuendaRezisorFilmis 'Marko Luts', 'Test';
+
+create table Linnad(
+LinnadId int primary key identity(1,1),
+LinnaNimi varchar(50),
+LinnaMeetmed varchar(50)
+)
+select * from Linnad
+
+insert into Linnad (LinnaNimi, LinnaMeetmed) 
+values ('Võru', 'Anti Allas');
+select * from Linnad
+
+--LinnaMeetmed otsing esimese tähe järgi
+create procedure otsing2taht
+@taht char(1)
+as
+begin
+	select * from Linnad
+	where LinnaMeetmed like CONCAT(@taht,'%');
+End;
+
+--käivitamine
+exec otsing2taht 'A';
+
+--protseduur mis kustutab sissetatud id järgi
+create procedure kustutalinn
+@id int 
+as
+begin
+select * from Linnad;
+delete from Linnad where LinnadId=@id;
+select * from Linnad
+end;
+
+exec kustutalinn 2;
+
+--proceduur, mis uuendab LinnaNimi andmed järgi
+create procedure uuslinn
+@uuslinn varchar(50),
+@LinnaMeetmed varchar(50)
+as
+begin
+select * from Linnad where LinnaMeetmed=@LinnaMeetmed;
+update Linnad set LinnaNimi=@uuslinn
+where LinnaMeetmed=@LinnaMeetmed;
+select * from Linnad where LinnaMeetmed=@LinnaMeetmed;;
+end;
+exec uuslinn 'Tallinn', 'Anti Allas';
+
+select * from Linnad
