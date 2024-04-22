@@ -75,3 +75,24 @@ End;
 
 --käivitamine
 exec otsing1taht 'F';
+
+--protseduur mis kustutab sissetatud id järgi
+create procedure kustutaFilm
+@id int 
+as
+begin
+select * from film;
+delete from film where filmId=@id;
+select * from film
+
+end;
+
+exec kustutaFilm 12;
+
+--proceduur, mis loeb filmide arv kokku
+
+create procedure FilmideArv
+as
+select count(*) as 'Filmide Arv' from film;
+
+exec FilmideArv;
