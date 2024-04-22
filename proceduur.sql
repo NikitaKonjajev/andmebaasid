@@ -62,3 +62,16 @@ insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('NeverEnding 
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Dog Day (Canicule)', 248, 'Rhianon Harcarse', 1991);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Mr. Nice Guy (Yat goh ho yan)', 221, 'Bobine Dumphy', 1990);
 select * from film
+
+select * from film
+--filmiNimetuse otsing esimese tähe järgi
+create procedure otsing1taht
+@taht char(1)
+as
+begin
+	select * from film
+	where filmNimetus like CONCAT(@taht,'%');
+End;
+
+--käivitamine
+exec otsing1taht 'F';
