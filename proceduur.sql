@@ -86,13 +86,24 @@ delete from film where filmId=@id;
 select * from film
 
 end;
-
 exec kustutaFilm 12;
 
 --proceduur, mis loeb filmide arv kokku
-
 create procedure FilmideArv
 as
 select count(*) as 'Filmide Arv' from film;
-
 exec FilmideArv;
+
+--proceduur, mis täidab tabeli film
+create procedure lisaFilm
+@uusfilm varchar(50),
+@kestvus int,
+@rezisoor varchar(50),
+@aasta int
+as
+begin
+insert into film (filmNimetus, kestvus, rezisoor, v_aasta) 
+values (@uusfilm, @kestvus, @rezisoor, @aasta);
+select * from film;
+end;
+exec lisaFilm 'test', 222, 'test', 2000;
