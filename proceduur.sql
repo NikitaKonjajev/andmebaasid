@@ -22,5 +22,13 @@ begin
 select * from film;
 delete from film where filmid=id;
 select * from film;
-end;
---on vaja kasuta 'teosta' nupp nagu dvoesnik või ei tööta
+end;  --on vaja kasuta 'teosta' nupp nagu dvoesnik või ei tööta
+
+--proceduur, mis loeb filmide arv kokku
+CREATE PROCEDURE `filmideArv`() NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER begin select count(*) as 'Filmide Arv' from film; end 
+
+begin
+select count(*) as 'Filmide Arv' from film;
+end
+	
+CALL `filmideArv`(); 
