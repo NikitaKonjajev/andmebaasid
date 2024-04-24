@@ -41,3 +41,13 @@ insert into film (filmNimetus, kestvus, rezisoor, v_aasta)
 values (uusfilm, kestvus, rezisoor, aasta);
 select * from film;
 end;
+
+--proceduur, mis uuendab rezisoori andmed filmiNimi järgi
+CREATE PROCEDURE `uuendaRezisoor`(IN `filmnimetus` VARCHAR(50), IN `uusrezisoor` VARCHAR(50)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER begin select * from film where filmNimetus=filmNimetus; update film set rezisoor=uusrezisoor where filmNimetus=filmNimetus; select * from film where filmNimetus=filmNimetus; end; 
+
+begin
+select * from film where filmNimetus=filmNimetus;
+update film set rezisoor=uusrezisoor
+where filmNimetus=filmNimetus;
+select * from film where filmNimetus=filmNimetus;
+end;
