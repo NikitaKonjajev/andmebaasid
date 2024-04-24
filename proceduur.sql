@@ -43,11 +43,10 @@ select * from film;
 end;
 
 --proceduur, mis uuendab rezisoori andmed filmiNimi järgi
-CREATE PROCEDURE `uuendaRezisoor`(IN `filmnimetus` VARCHAR(50), IN `uusrezisoor` VARCHAR(50)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER begin select * from film where filmNimetus=filmNimetus; update film set rezisoor=uusrezisoor where filmNimetus=filmNimetus; select * from film where filmNimetus=filmNimetus; end; 
-
+DROP PROCEDURE `uuendaRezisoor`; CREATE DEFINER=`root`@`localhost` PROCEDURE `uuendaRezisoor`(IN `filmNimi` VARCHAR(50), IN `uusrezisoor` VARCHAR(50)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER begin select * from film where filmNimetus like concat(filmNimi); update film set rezisoor=uusrezisoor where filmNimetus like concat(filmNimi); select * from film where filmNimetus like concat(filmNimi); end 
 begin
-select * from film where filmNimetus=filmNimetus;
+select * from film where filmNimetus like concat(filmNimi);
 update film set rezisoor=uusrezisoor
-where filmNimetus=filmNimetus;
-select * from film where filmNimetus=filmNimetus;
-end;
+where filmNimetus like concat(filmNimi);
+select * from film where filmNimetus like concat(filmNimi);
+end
