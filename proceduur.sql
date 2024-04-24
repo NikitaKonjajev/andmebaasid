@@ -23,3 +23,4 @@ select * from film;
 delete from film where filmid=id;
 select * from film;
 end;
+--on vaja kasuta 'teosta' nupp nagu dvoesnik või ei tööta
