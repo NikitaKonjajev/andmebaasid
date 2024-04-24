@@ -9,7 +9,7 @@ create proceduur 'otsin1taht'(In 'taht' char(1)) not deterministic contains sql 
   
 begin
 	select * from film
-	where filmNimetus like CONCAT(@taht,'%');
+	where filmNimetus like CONCAT(taht,'%');
 End;
 
 --protseduuri käivitamine
