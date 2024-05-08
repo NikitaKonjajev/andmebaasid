@@ -278,9 +278,10 @@ select * from Department
 
 
 --- loome stored procedure, mis kuvab vaate
+--Meil ei ole veerg LastName
 create procedure spGetEmployees
 as begin
-	select FirstName, Gender from Employees
+	select Name, Gender from Employees
 end
 
 spGetEmployees
