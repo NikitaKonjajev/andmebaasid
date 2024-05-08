@@ -34,7 +34,7 @@ values (2, 'Male')
 
 select * from Gender
 
---- ?
+--võtme lisamine ?
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
