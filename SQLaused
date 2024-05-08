@@ -71,7 +71,7 @@ default 3 for GenderId
 
 
 ---- 2 tund
-
+--võtame välja kaks tabelit (Person ja Gender)
 select * from Person
 select * from Gender
 
