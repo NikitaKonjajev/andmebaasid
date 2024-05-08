@@ -350,7 +350,7 @@ end
 --Siin oli ka viga, ei meil ei ole veergu FirstName
 declare @Name nvarchar(50)
 execute spGetNameById1 6, @FirstName output
-print 'Name of the employee = ' + @FirstName
+print 'Name of the employee = ' + @Name
 
 --vananeb algsesse olekusse id
 --Siin oli ka viga, ei meil ei ole veergu FirstName
