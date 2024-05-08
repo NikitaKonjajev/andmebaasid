@@ -338,7 +338,7 @@ execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
 --- me sisestame ID ja saame seda nimi
----Siin on ka viga, ei meil ei ole veergu FirstName
+---Siin oli ka viga, ei meil ei ole veergu FirstName
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
@@ -346,19 +346,21 @@ as begin
 	select @FirstName = Name from employees where Id = @Id
 end
 
---?
-declare @FirstName nvarchar(50)
+--kirjutab id-ga 6
+--Siin oli ka viga, ei meil ei ole veergu FirstName
+declare @Name nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
 
---?
+--vananeb algsesse olekusse id
+--Siin oli ka viga, ei meil ei ole veergu FirstName
 create proc spGetNameById2
 @Id int
 as begin
 	return (select FirstName from Employees where Id = @Id)
 end
 
--- ?
+-- -- Kirjutan nimi töötaja ja saame tema andmet
 declare @EmployeeName nvarchar(50)
 exec @EmployeeName = spGetNameById2 1
 print 'Name of the employee = ' + @EmployeeName
