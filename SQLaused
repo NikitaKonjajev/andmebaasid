@@ -304,7 +304,7 @@ spGetEmployeesByGenderAndDepartment @DepartmentId =  1, @Gender = 'Male'
 
 
 
---?
+--Loo protseduur, mis asendab soo
 create proc spGetEmployeeCountByGender
 @Gender nvarchar(20),
 @EmployeeCount int output
