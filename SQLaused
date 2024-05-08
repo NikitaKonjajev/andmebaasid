@@ -223,7 +223,7 @@ select distinct Name, DepartmentId from Employees
 
 ---Summa palk
 select sum(cast(Salary as int)) from Employees
----?
+---min palk
 select min(cast(Salary as int)) from Employees
 
 
