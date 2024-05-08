@@ -337,12 +337,13 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+--- me sisestame ID ja saame seda nimi
+---Siin on ka viga, ei meil ei ole veergu FirstName
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
 as begin
-	select @FirstName = FirstName from employees where Id = @Id
+	select @FirstName = Name from employees where Id = @Id
 end
 
 --?
