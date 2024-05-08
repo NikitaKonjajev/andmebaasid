@@ -7,6 +7,8 @@
 -- db loomine
 create database LOGITpv22
 
+
+
 use LOGITpv22;
 
 --tabeli Gender loomine?
